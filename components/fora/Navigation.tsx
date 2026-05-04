@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Target } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Usluge', href: '#capabilities' },
@@ -28,25 +28,20 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm'
+        : 'bg-transparent'
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-fora-red rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-slate-900 rounded-lg flex items-center justify-center">
-                <Target className="w-4 h-4 text-fora-red fill-fora-red/20" strokeWidth={2} />
-              </div>
-            </div>
-            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-              Fora
-            </span>
+            <img
+              src="/fora_logo-removebg-preview.png"
+              alt="Fora Logo"
+              className="h-10 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop nav */}
@@ -55,9 +50,8 @@ export default function Navigation() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-fora-red ${
-                  scrolled ? 'text-slate-600' : 'text-white/80'
-                }`}
+                className={`text-sm font-medium transition-colors duration-200 hover:text-fora-red ${scrolled ? 'text-slate-600' : 'text-white/80'
+                  }`}
               >
                 {item.label}
               </button>
