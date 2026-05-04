@@ -40,7 +40,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-24 lg:py-32 bg-slate-50">
+    <section id="industries" className="pt-24 lg:pt-32 pb-0 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -53,10 +53,10 @@ export default function Industries() {
           <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
             Industrije
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
             Rješenja za svaki sektor
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Naše iskustvo obuhvata raznolike industrije — od maloprodaje do visoko-regulisane medicinske opreme.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function Industries() {
                     <div className="w-10 h-10 bg-fora-red rounded-xl flex items-center justify-center shadow-lg">
                       <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-white font-bold text-xl">{industry.title}</h3>
+                    <h3 className="text-white font-bold text-lg sm:text-xl">{industry.title}</h3>
                   </div>
                 </div>
 
@@ -97,7 +97,7 @@ export default function Industries() {
                     {industry.examples.map((ex) => (
                       <span
                         key={ex}
-                        className="text-xs font-medium text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1"
+                        className="text-[10px] sm:text-xs font-medium text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1"
                       >
                         {ex}
                       </span>
@@ -115,18 +115,18 @@ export default function Industries() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
+          className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
         >
-          <div>
-            <p className="text-white font-bold text-xl mb-1">Ne vidite svoju industriju?</p>
-            <p className="text-slate-300 text-sm">Kontaktirajte nas i zajedno ćemo pronaći optimalno rješenje za vaš projekat.</p>
+          <div className="text-center sm:text-left">
+            <p className="text-white font-bold text-lg sm:text-xl mb-1">Ne vidite svoju industriju?</p>
+            <p className="text-slate-300 text-xs sm:text-sm">Kontaktirajte nas i zajedno ćemo pronaći optimalno rješenje za vaš projekat.</p>
           </div>
           <button
             onClick={() => {
               const el = document.querySelector('#contact');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="flex-shrink-0 bg-fora-red hover:bg-[#d52b28] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-fora-red/30 whitespace-nowrap"
+            className="w-full sm:w-auto flex-shrink-0 bg-fora-red hover:bg-[#d52b28] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-fora-red/30 whitespace-nowrap"
           >
             Razgovarajmo o projektu
           </button>

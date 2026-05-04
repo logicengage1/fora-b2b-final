@@ -172,10 +172,10 @@ export default function ContactForm() {
             <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
               Zatražite ponudu
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               Pošaljite nam tehničku specifikaciju
             </h2>
-            <p className="text-slate-300 text-lg leading-relaxed mb-10">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10">
               Priložite vaše tehničke fajlove i opišite projekat. Odgovorićemo s detaljnom i transparentnom ponudom u roku 48 sati.
             </p>
 

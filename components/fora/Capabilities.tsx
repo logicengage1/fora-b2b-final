@@ -57,7 +57,7 @@ const itemVariants = {
 
 export default function Capabilities() {
   return (
-    <section id="capabilities" className="py-24 lg:py-32 bg-white">
+    <section id="capabilities" className="pt-24 lg:pt-32 pb-0 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -70,10 +70,10 @@ export default function Capabilities() {
           <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
             Naše usluge
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
             Kompletna obrada pleksiglasa
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Od tehničkih crteža do gotovog proizvoda — sve pod jednim krovom s industrijskom preciznošću.
           </p>
         </motion.div>
