@@ -62,7 +62,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center">
             <button
               onClick={() => handleNavClick('#contact')}
-              className="bg-fora-red hover:bg-[#d52b28] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-fora-red/25 hover:shadow-fora-red/40 hover:-translate-y-0.5"
+              className="bg-fora-red hover:bg-[#d52b28] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-fora-red/25 hover:shadow-fora-red/40 hover:-translate-y-0.5"
             >
               Pošaljite Upit
             </button>
@@ -101,7 +101,7 @@ export default function Navigation() {
               ))}
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="mt-2 bg-fora-red text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-[#d52b28] transition-colors"
+                className="mt-2 bg-fora-red text-white font-semibold px-4 py-2.5 rounded-xl hover:bg-[#d52b28] transition-colors"
               >
                 Pošaljite Upit
               </button>
