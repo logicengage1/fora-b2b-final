@@ -22,13 +22,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#" className="flex items-center gap-2.5 mb-5">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-fora-red rounded-lg rotate-6" />
-                <div className="absolute inset-0 bg-slate-900 rounded-lg flex items-center justify-center">
-                  <Target className="w-4 h-4 text-fora-red fill-fora-red/20" strokeWidth={2} />
-                </div>
-              </div>
-              <span className="text-xl font-bold text-white tracking-tight">Fora</span>
+              <img
+                src="/fora_logo-removebg-preview.png"
+                alt="Fora Logo"
+                className="h-10 w-auto object-contain"
+              />
             </a>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Specijalizovana obrada i CNC rezanje pleksiglasa za B2B klijente u Srbcu i cijeloj regiji.
