@@ -126,7 +126,7 @@ export default function ContactForm() {
   };
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm transition-all duration-200 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 ${
+    `w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm transition-all duration-200 outline-none focus:ring-2 focus:ring-fora-red/20 focus:border-fora-red ${
       errors[field] ? 'border-red-400 focus:ring-red-500/20 focus:border-red-500' : 'border-slate-200 hover:border-slate-300'
     }`;
 
@@ -148,7 +148,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={() => setSubmitStatus('idle')}
-              className="bg-blue-500 hover:bg-blue-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+              className="bg-fora-red hover:bg-[#d52b28] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               Pošaljite novi upit
             </button>
@@ -169,7 +169,7 @@ export default function ContactForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-blue-400 text-sm font-semibold tracking-widest uppercase mb-4">
+            <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
               Zatražite ponudu
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
@@ -295,7 +295,7 @@ export default function ContactForm() {
                   onClick={() => fileInputRef.current?.click()}
                   className={`relative border-2 border-dashed rounded-xl px-6 py-8 text-center cursor-pointer transition-all duration-200 ${
                     isDragging
-                      ? 'border-blue-500 bg-blue-500/10'
+                      ? 'border-fora-red bg-fora-red/10'
                       : 'border-white/15 hover:border-white/30 hover:bg-white/3'
                   }`}
                 >
@@ -310,7 +310,7 @@ export default function ContactForm() {
                   <Upload className="w-7 h-7 text-slate-400 mx-auto mb-3" />
                   <p className="text-slate-300 text-sm font-medium">
                     Prevucite fajlove ovdje ili{' '}
-                    <span className="text-blue-400 underline">pretražite</span>
+                    <span className="text-fora-red underline">pretražite</span>
                   </p>
                   <p className="text-slate-500 text-xs mt-1">PDF, DXF, DWG, AI, PNG — max {MAX_FILE_MB}MB po fajlu</p>
                 </div>
@@ -323,7 +323,7 @@ export default function ContactForm() {
                         key={i}
                         className="flex items-center gap-3 bg-white/5 border border-white/8 rounded-lg px-3 py-2"
                       >
-                        <FileText className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                        <FileText className="w-4 h-4 text-fora-red flex-shrink-0" />
                         <span className="text-slate-300 text-xs flex-grow truncate">{file.name}</span>
                         <span className="text-slate-500 text-xs flex-shrink-0">
                           {(file.size / 1024 / 1024).toFixed(1)} MB
@@ -353,7 +353,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2.5 bg-blue-500 hover:bg-blue-400 disabled:bg-blue-500/50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all duration-200 shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 disabled:translate-y-0 text-base"
+                className="w-full flex items-center justify-center gap-2.5 bg-fora-red hover:bg-[#d52b28] disabled:bg-fora-red/50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all duration-200 shadow-xl shadow-fora-red/30 hover:shadow-fora-red/50 hover:-translate-y-0.5 disabled:translate-y-0 text-base"
               >
                 {isSubmitting ? (
                   <>

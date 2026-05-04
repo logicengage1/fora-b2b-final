@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Hexagon } from 'lucide-react';
+import { Menu, X, Target } from 'lucide-react';
 
 const navItems = [
   { label: 'Usluge', href: '#capabilities' },
@@ -39,9 +39,9 @@ export default function Navigation() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-blue-500 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-fora-red rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300" />
               <div className="absolute inset-0 bg-slate-900 rounded-lg flex items-center justify-center">
-                <Hexagon className="w-4 h-4 text-blue-400 fill-blue-400/20" strokeWidth={1.5} />
+                <Target className="w-4 h-4 text-fora-red fill-fora-red/20" strokeWidth={2} />
               </div>
             </div>
             <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-slate-900' : 'text-white'}`}>
@@ -55,7 +55,7 @@ export default function Navigation() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-blue-500 ${
+                className={`text-sm font-medium transition-colors duration-200 hover:text-fora-red ${
                   scrolled ? 'text-slate-600' : 'text-white/80'
                 }`}
               >
@@ -68,7 +68,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center">
             <button
               onClick={() => handleNavClick('#contact')}
-              className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+              className="bg-fora-red hover:bg-[#d52b28] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-fora-red/25 hover:shadow-fora-red/40 hover:-translate-y-0.5"
             >
               Pošaljite Upit
             </button>
@@ -100,14 +100,14 @@ export default function Navigation() {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-left px-3 py-2.5 text-slate-700 font-medium rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                  className="text-left px-3 py-2.5 text-slate-700 font-medium rounded-lg hover:bg-slate-50 hover:text-fora-red transition-colors"
                 >
                   {item.label}
                 </button>
               ))}
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="mt-2 bg-blue-500 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-blue-600 transition-colors"
+                className="mt-2 bg-fora-red text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-[#d52b28] transition-colors"
               >
                 Pošaljite Upit
               </button>

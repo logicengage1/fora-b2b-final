@@ -50,7 +50,7 @@ export default function Process() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
             Naš proces
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
@@ -82,12 +82,12 @@ export default function Process() {
                   <div className="relative flex items-center justify-center mb-6">
                     <div className="w-28 h-28 rounded-2xl bg-slate-50 border-2 border-slate-100 flex flex-col items-center justify-center gap-1 relative">
                       <span className="absolute top-2 right-3 text-xs font-bold text-slate-300 font-mono">{step.number}</span>
-                      <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                      <div className="w-10 h-10 bg-fora-red rounded-xl flex items-center justify-center shadow-lg shadow-fora-red/30">
                         <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                       </div>
                     </div>
                     {/* Connector dot */}
-                    <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-2 h-2 bg-blue-500 rounded-full last:hidden" />
+                    <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-2 h-2 bg-fora-red rounded-full last:hidden" />
                   </div>
 
                   <h3 className="text-slate-900 font-bold text-lg mb-3 text-center">{step.title}</h3>
@@ -95,8 +95,8 @@ export default function Process() {
 
                   {/* Detail badge */}
                   <div className="mt-5 flex justify-center">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 rounded-full px-3 py-1.5">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5">
+                      <div className="w-1.5 h-1.5 bg-fora-red rounded-full" />
                       {step.detail}
                     </span>
                   </div>

@@ -50,7 +50,7 @@ export default function Industries() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
             Industrije
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
@@ -83,7 +83,7 @@ export default function Industries() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-fora-red rounded-xl flex items-center justify-center shadow-lg">
                       <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                     </div>
                     <h3 className="text-white font-bold text-xl">{industry.title}</h3>
@@ -126,7 +126,7 @@ export default function Industries() {
               const el = document.querySelector('#contact');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="flex-shrink-0 bg-blue-500 hover:bg-blue-400 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-blue-500/30 whitespace-nowrap"
+            className="flex-shrink-0 bg-fora-red hover:bg-[#d52b28] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-fora-red/30 whitespace-nowrap"
           >
             Razgovarajmo o projektu
           </button>

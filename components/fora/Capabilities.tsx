@@ -10,7 +10,7 @@ const capabilities = [
     description:
       'Precizno sječenje i graviranje kompleksnih oblika s tolerancijom ±0.1 mm. Obrada svih vrsta akrila, od tankostjenih do masivnih ploča.',
     features: ['Tolerancija ±0.1 mm', 'Formati do 3050×2050 mm', 'DXF / PDF / AI fajlovi'],
-    accent: 'blue',
+    accent: 'red',
   },
   {
     icon: Flame,
@@ -26,7 +26,7 @@ const capabilities = [
     description:
       'Kristalno prozirni bridovi bez ikakvog tragova obrade. Visijalni kvalitet koji zadovoljava i najzahtjevnije arhitektonske projekte.',
     features: ['Optička bistrina', 'Bez mikro-ogrebotina', 'Završna obrada po mjeri'],
-    accent: 'cyan',
+    accent: 'slate',
   },
   {
     icon: FlaskConical,
@@ -39,9 +39,9 @@ const capabilities = [
 ];
 
 const accentConfig: Record<string, { bg: string; border: string; icon: string; badge: string; dot: string }> = {
-  blue:    { bg: 'bg-blue-50',    border: 'border-blue-100',   icon: 'bg-blue-500 text-white',   badge: 'bg-blue-50 text-blue-700 border-blue-100',   dot: 'bg-blue-400' },
+  red:     { bg: 'bg-red-50',     border: 'border-red-100',    icon: 'bg-fora-red text-white',   badge: 'bg-red-50 text-red-700 border-red-100',    dot: 'bg-fora-red' },
   orange:  { bg: 'bg-orange-50',  border: 'border-orange-100', icon: 'bg-orange-500 text-white', badge: 'bg-orange-50 text-orange-700 border-orange-100', dot: 'bg-orange-400' },
-  cyan:    { bg: 'bg-cyan-50',    border: 'border-cyan-100',   icon: 'bg-cyan-500 text-white',   badge: 'bg-cyan-50 text-cyan-700 border-cyan-100',   dot: 'bg-cyan-400' },
+  slate:   { bg: 'bg-slate-50',   border: 'border-slate-100',  icon: 'bg-slate-800 text-white',  badge: 'bg-slate-50 text-slate-700 border-slate-100', dot: 'bg-slate-400' },
   emerald: { bg: 'bg-emerald-50', border: 'border-emerald-100',icon: 'bg-emerald-500 text-white',badge: 'bg-emerald-50 text-emerald-700 border-emerald-100', dot: 'bg-emerald-400' },
 };
 
@@ -67,7 +67,7 @@ export default function Capabilities() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
             Naše usluge
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
@@ -123,7 +123,7 @@ export default function Capabilities() {
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"
+          className="mt-16 h-px bg-gradient-to-r from-transparent via-fora-red/30 to-transparent"
         />
       </div>
     </section>
