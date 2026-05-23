@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Layers, Cpu, FlaskConical } from 'lucide-react';
+import { Layers, Cpu, FlaskConical, ArrowRight } from 'lucide-react';
 
 const capabilities = [
   {
@@ -71,7 +71,7 @@ export default function Capabilities() {
               <motion.div
                 key={cap.title}
                 variants={itemVariants}
-                className="group bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8"
+                className={`group bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col gap-6 md:gap-8 ${capabilities.indexOf(cap) === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
               >
                 {/* Left column (fixed width ~288px) */}
                 <div className="w-full md:w-72 flex-shrink-0 flex flex-col">
@@ -98,11 +98,21 @@ export default function Capabilities() {
                   <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
                     {cap.description}
                   </p>
-                  
+
                   {/* Placeholder image box */}
                   <div className="h-48 w-full border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 flex items-center justify-center text-sm font-medium text-slate-400">
                     Dodati fotografije — {cap.title}
                   </div>
+                  <button
+                    onClick={() => {
+                      const el = document.querySelector('#contact');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="self-start inline-flex items-center gap-1.5 text-fora-red text-sm font-semibold hover:gap-3 transition-all duration-200"
+                  >
+                    Zatražite ponudu
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </motion.div>
             );

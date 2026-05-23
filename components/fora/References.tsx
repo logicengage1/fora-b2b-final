@@ -9,7 +9,7 @@ const references = [
     'Fructa Trade', 'Leburic Fortuna', 'Konzum',
     'DM Drogerie', 'FK Borac', 'Fabrika obuće Sportek',
     'ŠIKI KOMERC', 'Perutnina PPS', 'Sector Security',
-    'Mahle', 'Muzej Savremene umjetnosti Banja Luka',
+    'Mahle', 'Muzej Savremene umjetnosti BL',
     'Fortuna marketi', 'Drvoprodex', 'Krajina Klas',
     'MF Banka', 'Slababoni – Toyota', 'MI Tulumović', 'Orfej',
 ];

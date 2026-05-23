@@ -2,16 +2,14 @@ import { MapPin, Mail, Phone, Target, Linkedin, Facebook, Instagram } from 'luci
 
 const navLinks = [
   { label: 'Usluge', href: '#capabilities' },
-  { label: 'Industrije', href: '#industries' },
   { label: 'Proces', href: '#process' },
   { label: 'Kontakt', href: '#contact' },
 ];
 
 const services = [
-  'CNC Sječenje i Graviranje',
-  'Savijanje i Termoformiranje',
-  'Dijamantsko Poliranje',
-  'Izrada Prototipa',
+  'Prodaja pločastih materijala',
+  'Izrada proizvoda od pleksiglasa',
+  'Izrada polimernih sistema',
 ];
 
 export default function Footer() {
@@ -29,7 +27,7 @@ export default function Footer() {
               />
             </a>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Specijalizovana obrada i CNC rezanje pleksiglasa za B2B klijente u Srbcu i cijeloj regiji.
+              Prodaja pločastih materijala, izrada proizvoda i industrijske opreme od polimernih materijala.
             </p>
             <div className="flex items-center gap-3">
               {[
@@ -86,14 +84,14 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-slate-300 text-sm font-medium">Srbac</p>
-                  <p className="text-slate-500 text-xs">Republika Srpska, BiH</p>
+                  <p className="text-slate-500 text-xs">Zdravka Čelara 5</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
                 <div>
                   <a href="mailto:info@fora.ba" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
-                    info@fora.ba
+                    plexiglas@forasrbac.com
                   </a>
                   <p className="text-slate-500 text-xs">Za tehničke upite</p>
                 </div>
@@ -101,9 +99,12 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+38751123456" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
-                    +387 51 123 456
-                  </a>
+                  <a href="tel:+387 51 740 909" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
+                    +387 51 740 909
+                  </a><p>
+                    <a href="tel:+387 63 995 343" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
+                      +387 63 995 343
+                    </a></p>
                   <p className="text-slate-500 text-xs">Pon–Pet 08:00–16:00</p>
                 </div>
               </li>
@@ -114,10 +115,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs">
-            &copy; {new Date().getFullYear()} Fora d.o.o. Srbac. Sva prava zadržana.
+            &copy; {new Date().getFullYear()} Logic Engage. Sva prava zadržana.
           </p>
           <p className="text-slate-600 text-xs">
-            Precizna obrada pleksiglasa · Srbac, BiH
+            Polimerni materijali · Srbac, BiH
           </p>
         </div>
       </div>

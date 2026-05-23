@@ -126,8 +126,7 @@ export default function ContactForm() {
   };
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm transition-all duration-200 outline-none focus:ring-2 focus:ring-fora-red/20 focus:border-fora-red ${
-      errors[field] ? 'border-red-400 focus:ring-red-500/20 focus:border-red-500' : 'border-slate-200 hover:border-slate-300'
+    `w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm transition-all duration-200 outline-none focus:ring-2 focus:ring-fora-red/20 focus:border-fora-red ${errors[field] ? 'border-red-400 focus:ring-red-500/20 focus:border-red-500' : 'border-slate-200 hover:border-slate-300'
     }`;
 
   if (submitStatus === 'success') {
@@ -182,9 +181,9 @@ export default function ContactForm() {
             {/* Info boxes */}
             <div className="space-y-4">
               {[
-                { label: 'Email', value: 'info@fora.ba', sub: 'Za tehničke upite' },
-                { label: 'Telefon', value: '+387 51 123 456', sub: 'Radnim danima 08–16h' },
-                { label: 'Adresa', value: 'Srbac, Republika Srpska', sub: 'Bosna i Hercegovina' },
+                { label: 'Email', value: 'plexiglas@forasrbac.com', sub: 'Za tehničke upite' },
+                { label: 'Telefon', value: '+387 51 740 909 / +387 63 995 343', sub: 'Radnim danima 08–16h' },
+                { label: 'Adresa', value: 'Zdravka Čelara 5, Srbac', sub: 'Bosna i Hercegovina' },
               ].map((item) => (
                 <div key={item.label} className="bg-white/5 border border-white/8 rounded-xl px-5 py-4 flex items-center justify-between">
                   <div>
@@ -293,11 +292,10 @@ export default function ContactForm() {
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   onClick={() => fileInputRef.current?.click()}
-                  className={`relative border-2 border-dashed rounded-xl px-6 py-8 text-center cursor-pointer transition-all duration-200 ${
-                    isDragging
-                      ? 'border-fora-red bg-fora-red/10'
-                      : 'border-white/15 hover:border-white/30 hover:bg-white/3'
-                  }`}
+                  className={`relative border-2 border-dashed rounded-xl px-6 py-8 text-center cursor-pointer transition-all duration-200 ${isDragging
+                    ? 'border-fora-red bg-fora-red/10'
+                    : 'border-white/15 hover:border-white/30 hover:bg-white/3'
+                    }`}
                 >
                   <input
                     ref={fileInputRef}

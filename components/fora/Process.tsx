@@ -18,7 +18,7 @@ const steps = [
     title: 'Izrada Ponude',
     description:
       'Na osnovu tehničke analize, pripremamo detaljnu i transparentnu ponudu s preciznim cijenama, rokovima i materijalnim specifikacijama.',
-    detail: 'Odgovor u roku 48 sati',
+    detail: 'Odgovor u roku 24 sata',
   },
   {
     number: '03',
@@ -34,7 +34,7 @@ const steps = [
     title: 'Sigurna Dostava',
     description:
       'Proizvodi se pažljivo pakuju s zaštitnom folijom i ambalažom po mjeri. Organizujemo transport na vašu lokaciju širom regiona.',
-    detail: 'Dostava cijela regija',
+    detail: 'Dostava cijela država',
   },
 ];
 
@@ -116,7 +116,7 @@ export default function Process() {
         >
           {[
             { value: '±0.1 mm', label: 'Tolerancija izrade', sub: 'Garantovana preciznost' },
-            { value: '48h', label: 'Rok za ponudu', sub: 'Brz odgovor na upit' },
+            { value: '24h', label: 'Rok za ponudu', sub: 'Brz odgovor na upit' },
             { value: '100%', label: 'Kvalitet kontrola', sub: 'Svaki komad se mjeri' },
           ].map((item, i) => (
             <div

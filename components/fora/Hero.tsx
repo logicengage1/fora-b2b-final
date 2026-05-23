@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const stats = [
-  { value: '15+', label: 'Godina iskustva' },
-  { value: '500+', label: 'Završenih projekata' },
-  { value: '48h', label: 'Rok izrade ponude' },
+  { value: '20+', label: 'Godina iskustva' },
+  { value: '10000+', label: 'Završenih projekata' },
+  { value: '24h', label: 'Rok izrade ponude' },
 ];
 
 export default function Hero() {
@@ -16,9 +16,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white border-b border-slate-200">
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden bg-white border-b border-slate-200">
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-24 flex-grow flex flex-col justify-center items-center">
-        <div className="max-w-4xl pt-20 flex flex-col items-center text-center">
+        <div className="max-w-4xl pt-8 flex flex-col items-center text-center">
 
           {/* Badge & Status */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
@@ -92,16 +92,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-x-8 gap-y-6 items-center justify-center px-4"
+            className="flex flex-col items-center gap-6 px-4"
           >
-            {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
-                  {stat.value}
-                </span>
-                <span className="text-xs sm:text-sm text-slate-500 mt-0.5">{stat.label}</span>
-              </div>
-            ))}
+            <div className="flex flex-wrap gap-x-8 gap-y-4 items-center justify-center">
+              {stats.map((stat, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
+                    {stat.value}
+                  </span>
+                  <span className="text-xs sm:text-sm text-slate-500 mt-0.5">{stat.label}</span>
+                </div>
+              ))}
+            </div>
             <div className="inline-flex items-center border border-slate-200 rounded-full px-4 py-1.5 text-xs sm:text-sm text-slate-500 bg-slate-50">
               Srbac, Republika Srpska — Bosna i Hercegovina
             </div>
