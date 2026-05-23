@@ -19,25 +19,26 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white border-b border-slate-200">
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-24 flex-grow flex flex-col justify-center items-center">
         <div className="max-w-4xl pt-20 flex flex-col items-center text-center">
+
           {/* Badge & Status */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 backdrop-blur-md rounded-full px-4 py-1.5"
+              className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5"
             >
               <div className="w-1.5 h-1.5 bg-fora-red rounded-full animate-pulse" />
               <span className="text-slate-900 text-sm font-medium">Primamo projekte</span>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 backdrop-blur-md rounded-full px-4 py-1.5"
+              className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5"
             >
-              <span className="text-slate-600 text-sm font-medium">Precizna CNC obrada pleksiglasa</span>
+              <span className="text-slate-600 text-sm font-medium">Pleksiglas · Polikarbonat · PVC · Polipropilen</span>
             </motion.div>
           </div>
 
@@ -64,7 +65,7 @@ export default function Hero() {
             Vaš industrijski partner u Srpcu — od prodaje ploča i izrade proizvoda do kompletnih polimernih sistema i opreme.
           </motion.p>
 
-          {/* CTA group & Tech Specs Hover */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +85,6 @@ export default function Hero() {
             >
               Istražite naše usluge
             </button>
-            
           </motion.div>
 
           {/* Stats */}
@@ -106,6 +106,7 @@ export default function Hero() {
               Srbac, Republika Srpska — Bosna i Hercegovina
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
