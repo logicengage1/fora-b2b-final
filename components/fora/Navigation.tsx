@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Usluge', href: '#capabilities' },
   { label: 'Industrije', href: '#industries' },
   { label: 'Proces', href: '#process' },
+  { label: 'Reference', href: '#references' },
 ];
 
 export default function Navigation() {
@@ -28,9 +29,9 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm'
-        : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/80 ${scrolled
+        ? 'shadow-sm'
+        : ''
         }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,8 +51,7 @@ export default function Navigation() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-fora-red ${scrolled ? 'text-slate-600' : 'text-white/80'
-                  }`}
+                className="text-sm font-medium transition-colors duration-200 hover:text-fora-red text-slate-600"
               >
                 {item.label}
               </button>
@@ -70,7 +70,7 @@ export default function Navigation() {
 
           {/* Mobile toggle */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'}`}
+            className="md:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

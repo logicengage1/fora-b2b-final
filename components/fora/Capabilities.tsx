@@ -1,49 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Cpu, Flame, Sparkles, FlaskConical } from 'lucide-react';
+import { Layers, Cpu, FlaskConical } from 'lucide-react';
 
 const capabilities = [
   {
+    icon: Layers,
+    title: "Prodaja pleksiglasa i pločastih materijala",
+    description: "Prodajemo i isporučujemo polikarbonat, forex, polipropilen, polietilen i PET ploče u različitim debljinama i formatima. Vršimo sječenje ploča po vašoj mjeri.",
+    features: ["Polikarbonat", "Forex", "Polipropilen", "Polietilen", "PET", "Sječenje po mjeri"]
+  },
+  {
     icon: Cpu,
-    title: 'CNC Sječenje i Graviranje',
-    description:
-      'Precizno sječenje i graviranje kompleksnih oblika s tolerancijom ±0.1 mm. Obrada svih vrsta akrila, od tankostjenih do masivnih ploča.',
-    features: ['Tolerancija ±0.1 mm', 'Formati do 3050×2050 mm', 'DXF / PDF / AI fajlovi'],
-    accent: 'red',
-  },
-  {
-    icon: Flame,
-    title: 'Savijanje i Termoformiranje',
-    description:
-      'Oblikovanje kompleksnih 3D formi topljenjem i savijanjem pleksiglasa. Idealno za pultove, displeje i arhitektonske elemente.',
-    features: ['3D oblikovanje', 'Uglovi od 0° do 180°', 'Bez vidljivih šavova'],
-    accent: 'orange',
-  },
-  {
-    icon: Sparkles,
-    title: 'Dijamantsko Poliranje',
-    description:
-      'Kristalno prozirni bridovi bez ikakvog tragova obrade. Visijalni kvalitet koji zadovoljava i najzahtjevnije arhitektonske projekte.',
-    features: ['Optička bistrina', 'Bez mikro-ogrebotina', 'Završna obrada po mjeri'],
-    accent: 'slate',
+    title: "Izrada proizvoda od pleksiglasa i ostalih pločastih materijala",
+    description: "Izrađujemo gotove proizvode za B2B klijente: govornice, kutije za rinfuznu robu, zaštite za CNC i ostale mašine, šibere za rashladne vitrine, držače cjenovnika, elemente enterijera, kola sreće i košarkaške table.",
+    features: ["Govornice i kutije", "Zaštite za mašine", "Šiberi i držači cjenovnika", "Košarkaške table", "Kola sreće", "Elementi enterijera"]
   },
   {
     icon: FlaskConical,
-    title: 'Izrada Prototipa',
-    description:
-      'Od ideje do fizičkog prototipa u kratkom roku. Idealno za R&D, POS materijale i arhitektonske modele prije serijske proizvodnje.',
-    features: ['Brza izrada', 'Iterativni dizajn', 'Jedan ili mala serija'],
-    accent: 'emerald',
-  },
+    title: "Izrada opreme od polimernih materijala",
+    description: "Projektujemo i izrađujemo industrijsku opremu: rezervoare do 60.000 litara, ventilacione sisteme, galvanske kade i opremu za tretman otpadnih voda. Ekstruziono zavarivanje polipropilena, polietilena i PVC-a.",
+    features: ["Rezervoari do 60.000 L", "Ventilacioni sistemi", "Galvanske kade", "Tretman otpadnih voda", "Ekstruziono zavarivanje"]
+  }
 ];
-
-const accentConfig: Record<string, { bg: string; border: string; icon: string; badge: string; dot: string }> = {
-  red:     { bg: 'bg-red-50',     border: 'border-red-100',    icon: 'bg-fora-red text-white',   badge: 'bg-red-50 text-red-700 border-red-100',    dot: 'bg-fora-red' },
-  orange:  { bg: 'bg-orange-50',  border: 'border-orange-100', icon: 'bg-orange-500 text-white', badge: 'bg-orange-50 text-orange-700 border-orange-100', dot: 'bg-orange-400' },
-  slate:   { bg: 'bg-slate-50',   border: 'border-slate-100',  icon: 'bg-slate-800 text-white',  badge: 'bg-slate-50 text-slate-700 border-slate-100', dot: 'bg-slate-400' },
-  emerald: { bg: 'bg-emerald-50', border: 'border-emerald-100',icon: 'bg-emerald-500 text-white',badge: 'bg-emerald-50 text-emerald-700 border-emerald-100', dot: 'bg-emerald-400' },
-};
 
 const containerVariants = {
   hidden: {},
@@ -71,60 +50,64 @@ export default function Capabilities() {
             Naše usluge
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
-            Kompletna obrada pleksiglasa
+            Naše usluge i proizvodni program
           </h2>
           <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Od tehničkih crteža do gotovog proizvoda — sve pod jednim krovom s industrijskom preciznošću.
+            Tri osnovna programa — prodaja materijala, izrada proizvoda i industrijska oprema — sve pod jednim krovom.
           </p>
         </motion.div>
 
-        {/* Cards grid */}
+        {/* Cards stacked list */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="flex flex-col gap-8"
         >
           {capabilities.map((cap) => {
-            const config = accentConfig[cap.accent];
             const Icon = cap.icon;
             return (
               <motion.div
                 key={cap.title}
                 variants={itemVariants}
-                className="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                className="group bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8"
               >
-                {/* Icon */}
-                <div className={`w-12 h-12 ${config.icon} rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-6 h-6" strokeWidth={1.5} />
+                {/* Left column (fixed width ~288px) */}
+                <div className="w-full md:w-72 flex-shrink-0 flex flex-col">
+                  {/* Icon */}
+                  <div className="w-12 h-12 bg-fora-red text-white rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-slate-900 font-bold text-lg sm:text-xl mb-4 leading-tight">
+                    {cap.title}
+                  </h3>
+                  {/* Features */}
+                  <div className="space-y-2 mt-auto md:mt-0">
+                    {cap.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-fora-red rounded-full flex-shrink-0" />
+                        <span className="text-slate-600 text-xs sm:text-sm font-medium">{f}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <h3 className="text-slate-900 font-bold text-lg mb-3 leading-tight">{cap.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-grow">{cap.description}</p>
-
-                {/* Features */}
-                <div className="space-y-2">
-                  {cap.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 ${config.dot} rounded-full flex-shrink-0`} />
-                      <span className="text-slate-600 text-xs font-medium">{f}</span>
-                    </div>
-                  ))}
+                {/* Right column (flexible) */}
+                <div className="flex-grow flex flex-col justify-between gap-6">
+                  <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                    {cap.description}
+                  </p>
+                  
+                  {/* Placeholder image box */}
+                  <div className="h-48 w-full border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 flex items-center justify-center text-sm font-medium text-slate-400">
+                    Dodati fotografije — {cap.title}
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
-
-        {/* Bottom accent bar */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 h-px bg-gradient-to-r from-transparent via-fora-red/30 to-transparent"
-        />
       </div>
     </section>
   );
