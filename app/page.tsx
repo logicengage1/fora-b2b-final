@@ -4,6 +4,7 @@ import Capabilities from '@/components/fora/Capabilities';
 import Process from '@/components/fora/Process';
 import ContactForm from '@/components/fora/ContactForm';
 import Footer from '@/components/fora/Footer';
+import References from '@/components/fora/References';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Capabilities />
       <Process />
+      <References />
       <ContactForm />
       <Footer />
     </main>
