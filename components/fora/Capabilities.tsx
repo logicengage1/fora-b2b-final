@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Layers, Cpu, FlaskConical, ArrowRight } from 'lucide-react';
+import { galleryData } from '@/lib/gallery';
 
 const capabilities = [
   {
@@ -80,6 +81,23 @@ export default function Capabilities() {
           className="flex flex-col gap-8"
         >
           {capabilities.map((cap, index) => {
+
+            const isProducts = cap.title.toLowerCase().includes('proizvoda');
+
+            const isEquipment = cap.title.toLowerCase().includes('opreme');
+
+            const dirName = isProducts
+              ? 'proizvodi'
+              : isEquipment
+                ? 'oprema'
+                : '';
+
+            const images = isProducts
+              ? galleryData.proizvodi
+              : isEquipment
+                ? galleryData.oprema
+                : [];
+
             const Icon = cap.icon;
 
             if (index === 0) {
@@ -172,9 +190,36 @@ export default function Capabilities() {
                   <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
                     {cap.description}
                   </p>
-                  {cap.hasGallery && (
-                    <div className="h-48 w-full border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 flex items-center justify-center text-sm font-medium text-slate-400">
-                      Dodati fotografije — {cap.title}
+                  {cap.hasGallery && images.length > 0 && (
+                    <div
+                      className={
+                        isProducts
+                          ? 'grid grid-cols-2 md:grid-cols-3 gap-3'
+                          : 'grid grid-cols-2 gap-3'
+                      }
+                    >
+                      {images.map((img) => (
+                        <a
+                          key={img}
+                          href={`/assets/lightbox/${dirName}/${img}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 hover:border-fora-red/30 hover:shadow-md transition-all duration-300"
+                        >
+                          <img
+                            src={`/assets/thumbs/${dirName}/${img}`}
+                            alt={img.replace('.webp', '').replace(/-/g, ' ')}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+
+                          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
+                            <span className="text-white text-xs font-semibold px-3 py-1.5 rounded-full bg-fora-red/90">
+                              Pregledaj
+                            </span>
+                          </div>
+                        </a>
+                      ))}
                     </div>
                   )}
                   <button
