@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Cpu, FlaskConical, ArrowRight } from 'lucide-react';
 import { galleryData } from '@/lib/gallery';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const capabilities = [
   {
@@ -49,6 +52,9 @@ const itemVariants = {
 };
 
 export default function Capabilities() {
+  const [activeCategory, setActiveCategory] = useState<'proizvodi' | 'oprema' | null>(null);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
+
   return (
     <section id="capabilities" className="pt-24 lg:pt-32 pb-0 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,22 +87,14 @@ export default function Capabilities() {
           className="flex flex-col gap-8"
         >
           {capabilities.map((cap, index) => {
-
             const isProducts = cap.title.toLowerCase().includes('proizvoda');
-
             const isEquipment = cap.title.toLowerCase().includes('opreme');
-
-            const dirName = isProducts
-              ? 'proizvodi'
-              : isEquipment
-                ? 'oprema'
-                : '';
-
-            const images = isProducts
-              ? galleryData.proizvodi
-              : isEquipment
-                ? galleryData.oprema
-                : [];
+            const dirName = isProducts ? 'proizvodi' : isEquipment ? 'oprema' : '';
+            const images = isProducts ? galleryData.proizvodi : isEquipment ? galleryData.oprema : [];
+            const limit = isProducts ? 6 : 4;
+            const hasMore = images.length > limit;
+            const previewImages = hasMore ? images.slice(0, limit) : images;
+            const remainingCount = images.length - limit;
 
             const Icon = cap.icon;
 
@@ -194,32 +192,42 @@ export default function Capabilities() {
                     <div
                       className={
                         isProducts
-                          ? 'grid grid-cols-2 md:grid-cols-3 gap-3'
-                          : 'grid grid-cols-2 gap-3'
+                          ? 'grid grid-cols-3 gap-2'
+                          : 'grid grid-cols-2 gap-2'
                       }
                     >
-                      {images.map((img) => (
-                        <a
-                          key={img}
-                          href={`/assets/lightbox/${dirName}/${img}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 hover:border-fora-red/30 hover:shadow-md transition-all duration-300"
-                        >
-                          <img
-                            src={`/assets/thumbs/${dirName}/${img}`}
-                            alt={img.replace('.webp', '').replace(/-/g, ' ')}
-                            loading="lazy"
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-
-                          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
-                            <span className="text-white text-xs font-semibold px-3 py-1.5 rounded-full bg-fora-red/90">
-                              Pregledaj
-                            </span>
+                      {previewImages.map((img, imgIndex) => {
+                        const isLast = imgIndex === limit - 1;
+                        return (
+                          <div
+                            key={img}
+                            onClick={() => {
+                              setActiveCategory(dirName as 'proizvodi' | 'oprema');
+                              setPhotoIndex(imgIndex);
+                            }}
+                            className="group/thumb relative aspect-[4/3] max-h-24 sm:max-h-28 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 cursor-pointer transition-all duration-300 hover:shadow-md hover:border-fora-red/30"
+                          >
+                            <img
+                              src={`/assets/thumbs/${dirName}/${img}`}
+                              alt={img.replace('.webp', '').replace(/-/g, ' ')}
+                              loading="lazy"
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+                            />
+                            {isLast && hasMore ? (
+                              <div className="absolute inset-0 bg-black/60 group-hover/thumb:bg-black/70 transition-colors duration-300 flex flex-col items-center justify-center text-center p-1.5">
+                                <span className="text-white text-base sm:text-lg font-bold">+{remainingCount}</span>
+                                <span className="text-white/80 text-[9px] sm:text-xs font-medium mt-0.5">Pregledaj galeriju</span>
+                              </div>
+                            ) : (
+                              <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover/thumb:opacity-100 flex items-center justify-center">
+                                <span className="text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 bg-fora-red/90 rounded-full shadow-lg">
+                                  Pregledaj
+                                </span>
+                              </div>
+                            )}
                           </div>
-                        </a>
-                      ))}
+                        );
+                      })}
                     </div>
                   )}
                   <button
@@ -238,6 +246,16 @@ export default function Capabilities() {
           })}
         </motion.div>
       </div>
+      {activeCategory && (
+        <Lightbox
+          open={activeCategory !== null}
+          close={() => setActiveCategory(null)}
+          index={photoIndex}
+          slides={galleryData[activeCategory].map((img: string) => ({
+            src: `/assets/lightbox/${activeCategory}/${img}`,
+          }))}
+        />
+      )}
     </section>
   );
 }
