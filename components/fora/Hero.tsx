@@ -22,15 +22,6 @@ export default function Hero() {
 
           {/* Badge & Status */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5"
-            >
-              <div className="w-1.5 h-1.5 bg-fora-red rounded-full animate-pulse" />
-              <span className="text-slate-900 text-sm font-medium">Primamo projekte</span>
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
