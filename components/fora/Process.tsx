@@ -57,7 +57,7 @@ export default function Process() {
             Od ideje do isporuke
           </h2>
           <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Transparentan i efikasan proces koji vam garantuje precizne rezultate i predvidive rokove.
+            Transparentan i efikasan proces koji vam garantuje precizne rezultate i predvidljive rokove.
           </p>
         </motion.div>
 

@@ -47,7 +47,7 @@ export default function References() {
                 <span className="text-fora-red font-bold uppercase tracking-wider text-xs">Naše Reference</span>
                 <h2 className="text-slate-900 font-bold text-3xl sm:text-4xl mt-2 mb-4">Kompanije koje nam vjeruju</h2>
                 <p className="text-slate-500 text-sm sm:text-base max-w-2xl mx-auto mb-20">
-                    Sarađujemo s kompanijama iz maloprodaje, industrije, sporta i javnog sektora širom regiona.
+                    Sarađujemo s kompanijama iz maloprodaje, industrije, sporta i javnog sektora u cijeloj državi.
                 </p>
 
                 <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-14 max-w-5xl mx-auto">
