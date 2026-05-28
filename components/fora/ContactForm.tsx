@@ -167,30 +167,34 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center md:text-left"
           >
-            <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4">
+            <span className="inline-block text-fora-red text-sm font-semibold tracking-widest uppercase mb-4 w-full md:w-auto text-center md:text-left">
               Zatražite ponudu
             </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-center md:text-left">
               Pošaljite nam tehničku specifikaciju
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10 text-center md:text-left max-w-2xl mx-auto md:mx-0">
               Priložite vaše tehničke fajlove i opišite projekat. Odgovorićemo s detaljnom i transparentnom ponudom u roku 48 sati.
             </p>
 
-            {/* Info boxes */}
-            <div className="space-y-4">
+            {/* Info boxes - Styled to change orientation and align perfectly on mobile viewports */}
+            <div className="space-y-4 max-w-xl mx-auto md:mx-0">
               {[
                 { label: 'Email', value: 'plexiglas@forasrbac.com', sub: 'Za tehničke upite' },
                 { label: 'Telefon', value: '+387 51 740 909 / +387 63 995 343', sub: 'Radnim danima 08–16h' },
                 { label: 'Adresa', value: 'Zdravka Čelara 5, Srbac', sub: 'Bosna i Hercegovina' },
               ].map((item) => (
-                <div key={item.label} className="bg-white/5 border border-white/8 rounded-xl px-5 py-4 flex items-center justify-between">
-                  <div>
+                <div
+                  key={item.label}
+                  className="bg-white/5 border border-white/8 rounded-xl px-5 py-4 flex flex-col sm:flex-row items-center sm:justify-between text-center sm:text-left gap-3 sm:gap-4"
+                >
+                  <div className="flex flex-col items-center sm:items-start">
                     <p className="text-slate-400 text-xs font-medium mb-0.5">{item.label}</p>
-                    <p className="text-white font-semibold text-sm">{item.value}</p>
+                    <p className="text-white font-semibold text-sm break-all">{item.value}</p>
                   </div>
-                  <span className="text-slate-500 text-xs">{item.sub}</span>
+                  <span className="text-slate-500 text-xs sm:text-right flex-shrink-0">{item.sub}</span>
                 </div>
               ))}
             </div>
@@ -206,7 +210,7 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit} noValidate className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-5">
               {/* Row 1 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
+                <div className="text-left items-start">
                   <label className="block text-slate-300 text-xs font-semibold mb-2 uppercase tracking-wide">
                     Ime i prezime <span className="text-red-400">*</span>
                   </label>
@@ -223,7 +227,7 @@ export default function ContactForm() {
                     </p>
                   )}
                 </div>
-                <div>
+                <div className="text-left items-start">
                   <label className="block text-slate-300 text-xs font-semibold mb-2 uppercase tracking-wide">
                     Naziv firme <span className="text-red-400">*</span>
                   </label>
@@ -243,7 +247,7 @@ export default function ContactForm() {
               </div>
 
               {/* Email */}
-              <div>
+              <div className="text-left items-start">
                 <label className="block text-slate-300 text-xs font-semibold mb-2 uppercase tracking-wide">
                   Email adresa <span className="text-red-400">*</span>
                 </label>
@@ -263,7 +267,7 @@ export default function ContactForm() {
               </div>
 
               {/* Description */}
-              <div>
+              <div className="text-left items-start">
                 <label className="block text-slate-300 text-xs font-semibold mb-2 uppercase tracking-wide">
                   Opis projekta <span className="text-red-400">*</span>
                 </label>
@@ -283,7 +287,7 @@ export default function ContactForm() {
               </div>
 
               {/* File upload */}
-              <div>
+              <div className="text-left items-start">
                 <label className="block text-slate-300 text-xs font-semibold mb-2 uppercase tracking-wide">
                   Tehnička dokumentacija <span className="text-slate-500 normal-case font-normal">(opciono)</span>
                 </label>
