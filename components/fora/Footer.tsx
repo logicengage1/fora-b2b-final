@@ -1,3 +1,5 @@
+'use client';
+
 import { MapPin, Mail, Phone, Target, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const navLinks = [
@@ -16,9 +18,11 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Main Grid: Stacks vertically and centers on mobile, splits neatly on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col items-center sm:items-start">
             <a href="#" className="flex items-center gap-2.5 mb-5">
               <img
                 src="/fora_logo-removebg-preview.png"
@@ -26,7 +30,7 @@ export default function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </a>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
               Prodaja pločastih materijala, izrada proizvoda i industrijske opreme od polimernih materijala.
             </p>
             <div className="flex items-center gap-3">
@@ -48,7 +52,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Navigacija</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -65,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Usluge</h4>
             <ul className="space-y-3">
               {services.map((s) => (
@@ -77,45 +81,49 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Kontakt</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
+            <ul className="space-y-4 w-full flex flex-col items-center sm:items-start">
+
+              <li className="flex flex-col items-center sm:flex-row sm:items-start gap-2 sm:gap-3 text-center sm:text-left">
                 <MapPin className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-slate-300 text-sm font-medium">Srbac</p>
                   <p className="text-slate-500 text-xs">Zdravka Čelara 5</p>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
+
+              <li className="flex flex-col items-center sm:flex-row sm:items-start gap-2 sm:gap-3 text-center sm:text-left">
                 <Mail className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
-                <div>
-                  <a href="mailto:info@fora.ba" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
+                <div className="flex flex-col items-center sm:items-start">
+                  <a href="mailto:plexiglas@forasrbac.com" className="text-slate-300 hover:text-fora-red text-sm transition-colors break-all">
                     plexiglas@forasrbac.com
                   </a>
-                  <p className="text-slate-500 text-xs">Za tehničke upite</p>
+                  <p className="text-slate-500 text-xs mt-0.5">Za tehničke upite</p>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
+
+              <li className="flex flex-col items-center sm:flex-row sm:items-start gap-2 sm:gap-3 text-center sm:text-left">
                 <Phone className="w-4 h-4 text-fora-red flex-shrink-0 mt-0.5" />
-                <div>
+                <div className="flex flex-col items-center sm:items-start">
                   <a href="tel:+387 51 740 909" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
                     +387 51 740 909
-                  </a><p>
-                    <a href="tel:+387 63 995 343" className="text-slate-300 hover:text-fora-red text-sm transition-colors">
-                      +387 63 995 343
-                    </a></p>
-                  <p className="text-slate-500 text-xs">Pon–Pet 08:00–16:00</p>
+                  </a>
+                  <a href="tel:+387 63 995 343" className="text-slate-300 hover:text-fora-red text-sm transition-colors mt-0.5 block">
+                    +387 63 995 343
+                  </a>
+                  <p className="text-slate-500 text-xs mt-1">Pon–Pet 08:00–16:00</p>
                 </div>
               </li>
+
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-slate-500 text-xs">
-            &copy; {new Date().getFullYear()} Logic Engage. Sva prava zadržana.
+            &copy; {new Date().getFullYear()} fora. Sva prava zadržana.
           </p>
           <p className="text-slate-600 text-xs">
             Polimerni materijali · Srbac, BiH
