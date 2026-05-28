@@ -42,24 +42,25 @@ const COMPANY_REFERENCES = [
 
 export default function References() {
     return (
-        <section className="bg-white py-24 px-4">
+        <section className="bg-white py-16 md:py-24 px-4">
             <div className="max-w-6xl mx-auto text-center">
                 <span className="text-fora-red font-bold uppercase tracking-wider text-xs">Naše Reference</span>
                 <h2 className="text-slate-900 font-bold text-3xl sm:text-4xl mt-2 mb-4">Kompanije koje nam vjeruju</h2>
-                <p className="text-slate-500 text-sm sm:text-base max-w-2xl mx-auto mb-20">
+                <p className="text-slate-500 text-sm sm:text-base max-w-2xl mx-auto mb-12 md:mb-20">
                     Sarađujemo s kompanijama iz maloprodaje, industrije, sporta i javnog sektora u cijeloj državi.
                 </p>
 
-                <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-14 max-w-5xl mx-auto">
+                {/* Adjusted responsive gaps for fluid mobile centering */}
+                <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-10 md:gap-x-16 md:gap-y-14 max-w-5xl mx-auto">
                     {COMPANY_REFERENCES.map((company) => (
                         <div
                             key={company.id}
-                            className="flex items-center justify-center min-w-[120px] max-w-[180px] transition-all duration-300 hover:scale-105"
+                            className="flex items-center justify-center w-[35%] sm:w-auto sm:min-w-[120px] sm:max-w-[180px] transition-all duration-300 hover:scale-105"
                         >
                             <img
                                 src={company.logo}
                                 alt={`${company.name} logo`}
-                                /* Removed grayscale. Kept a soft opacity mix so the full vibrant colors blend perfectly into the layout. */
+                                /* Soft opacity mix variant remains beautifully untouched */
                                 className={`${company.logoSize} w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300`}
                             />
                         </div>
