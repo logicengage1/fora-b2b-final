@@ -5,6 +5,7 @@ import Process from '@/components/fora/Process';
 import ContactForm from '@/components/fora/ContactForm';
 import Footer from '@/components/fora/Footer';
 import References from '@/components/fora/References';
+import BackToTop from '@/components/fora/BackToTop';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <References />
       <ContactForm />
       <Footer />
+      <BackToTop />
     </main>
   );
 }
