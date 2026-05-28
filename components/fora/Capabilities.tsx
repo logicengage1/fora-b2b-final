@@ -165,17 +165,17 @@ export default function Capabilities() {
                 variants={itemVariants}
                 className={`group bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col gap-6 md:gap-8 ${index === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
               >
-                {/* Left column */}
-                <div className="w-full md:w-72 flex-shrink-0 flex flex-col">
+                {/* Left column - Centers fully on mobile, left-aligns on desktop grids */}
+                <div className="w-full md:w-72 flex-shrink-0 flex flex-col items-center md:items-start text-center md:text-left">
                   <div className="w-12 h-12 bg-fora-red text-white rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-slate-900 font-bold text-lg sm:text-xl mb-4 leading-tight">
+                  <h3 className="text-slate-900 font-bold text-lg sm:text-xl mb-5 leading-tight max-w-sm">
                     {cap.title}
                   </h3>
-                  <div className="space-y-2 mt-auto md:mt-0">
+                  <div className="space-y-2 mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
                     {cap.features.map((f) => (
-                      <div key={f} className="flex items-center gap-2">
+                      <div key={f} className="flex items-center gap-2 text-left w-full max-w-xs md:max-w-none justify-start px-4 md:px-0">
                         <div className="w-1.5 h-1.5 bg-fora-red rounded-full flex-shrink-0" />
                         <span className="text-slate-600 text-xs sm:text-sm font-medium">{f}</span>
                       </div>
@@ -184,7 +184,7 @@ export default function Capabilities() {
                 </div>
 
                 {/* Right column */}
-                <div className="flex-grow flex flex-col gap-6">
+                <div className="flex-grow flex flex-col gap-6 items-center md:items-start text-center md:text-left">
                   <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
                     {cap.description}
                   </p>
@@ -192,8 +192,8 @@ export default function Capabilities() {
                     <div
                       className={
                         isProducts
-                          ? 'grid grid-cols-3 gap-2'
-                          : 'grid grid-cols-2 gap-2'
+                          ? 'grid grid-cols-3 gap-2 w-full'
+                          : 'grid grid-cols-2 gap-2 w-full'
                       }
                     >
                       {previewImages.map((img, imgIndex) => {
@@ -235,7 +235,7 @@ export default function Capabilities() {
                       const el = document.querySelector('#contact');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="self-start inline-flex items-center gap-1.5 text-fora-red text-sm font-semibold hover:gap-3 transition-all duration-200"
+                    className="inline-flex items-center gap-1.5 text-fora-red text-sm font-semibold hover:gap-3 transition-all duration-200 self-center md:self-start mt-2"
                   >
                     Zatražite ponudu
                     <ArrowRight className="w-4 h-4" />
