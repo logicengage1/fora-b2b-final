@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, X, FileText, CheckCircle, AlertCircle, Send, Loader2 } from 'lucide-react';
 
@@ -34,7 +34,17 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitError, setSubmitError] = useState('');
+
+  // 1. DODATO: Kodna anti-bot stanja (Honeypot i Vrijeme renderovanja)
+  const [honeypot, setHoneypot] = useState('');
+  const formLoadTime = useRef<number>(0);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Bilježimo tačno vrijeme kada se komponenta učitala na ekranu
+  useEffect(() => {
+    formLoadTime.current = Date.now();
+  }, []);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -90,6 +100,19 @@ export default function ContactForm() {
     }
   };
 
+  // Pomoćna funkcija za pretvaranje fajla u Base64 string
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64String = (reader.result as string).split(',')[1];
+        resolve(base64String);
+      };
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
@@ -98,17 +121,31 @@ export default function ContactForm() {
     setSubmitStatus('idle');
     setSubmitError('');
 
+    const timeElapsed = (Date.now() - formLoadTime.current) / 1000;
+
     try {
-      // 1. Promijenili smo rutu na /api/contact gdje nam se nalazi Resend backend
+      // Pretvaramo zakačene fajlove u Base64 format da ih klijent može skinuti iz mejla
+      const preparedAttachments = await Promise.all(
+        files.map(async (file) => {
+          const content = await fileToBase64(file);
+          return {
+            filename: file.name,
+            content: content,
+          };
+        })
+      );
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.full_name, // Mapiramo podatke iz tvog stanja
+          name: formData.full_name,
           email: formData.email,
           company: formData.company_name,
           message: formData.project_description,
-          file_names: files.map((f) => f.name), // Šaljemo spisak naziva fajlova
+          attachments: preparedAttachments, // <-- Šaljemo kompletne fajlove sa sadržajem
+          hp_field: honeypot,
+          submission_speed: timeElapsed
         }),
       });
 
@@ -121,6 +158,7 @@ export default function ContactForm() {
       setSubmitStatus('success');
       setFormData({ full_name: '', company_name: '', email: '', project_description: '' });
       setFiles([]);
+      setHoneypot('');
     } catch (err: any) {
       setSubmitStatus('error');
       setSubmitError(err.message || 'Greška pri slanju. Pokušajte ponovo.');
@@ -145,12 +183,15 @@ export default function ContactForm() {
             <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-8 h-8 text-emerald-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Upit je uspješno poslan!</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Upit je uspešno poslan!</h3>
             <p className="text-slate-300 mb-8 leading-relaxed">
               Hvala na povjerenju. Naš tim će pregledati vašu tehničku specifikaciju i kontaktirati vas s ponudom u roku od 48 sati.
             </p>
             <button
-              onClick={() => setSubmitStatus('idle')}
+              onClick={() => {
+                setSubmitStatus('idle');
+                formLoadTime.current = Date.now(); // Resetujemo vrijeme za novu formu
+              }}
               className="bg-fora-red hover:bg-[#d52b28] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               Pošaljite novi upit
@@ -183,7 +224,6 @@ export default function ContactForm() {
               Priložite vaše tehničke fajlove i opišite projekat. Odgovorićemo s detaljnom i transparentnom ponudom u roku 48 sati.
             </p>
 
-            {/* Info boxes - Styled to change orientation and align perfectly on mobile viewports */}
             <div className="space-y-4 max-w-xl mx-auto md:mx-0">
               {[
                 { label: 'Email', value: 'plexiglas@forasrbac.com', sub: 'Za tehničke upite' },
@@ -212,6 +252,19 @@ export default function ContactForm() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <form onSubmit={handleSubmit} noValidate className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-5">
+
+              {/* 2. DODATO: Potpuno skriveno Honeypot polje koje ljudi ne vide, a botovi popunjavaju */}
+              <div style={{ display: 'none' }} aria-hidden="true">
+                <input
+                  type="text"
+                  name="website_url"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               {/* Row 1 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="text-left items-start">
