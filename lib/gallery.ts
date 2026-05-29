@@ -1,7 +1,6 @@
 export const galleryData = {
   proizvodi: [
     'a4-nosac.webp',
-    'govornica-1.webp',
     'govornica-2.webp',
     'govornica-4.webp',
     'govornica.webp',
@@ -10,7 +9,6 @@ export const galleryData = {
     'kutija-za-donaciju-2.webp',
     'kutija-za-donaciju.webp',
     'kutija-za-rinfuznu-robu-1.webp',
-    'kutija-za-rinfuznu-robu-11.webp',
     'kutija-za-rinfuznu-robu-2.webp',
     'kutija-za-rinfuznu-robu-3.webp',
     'kutija-za-rinfuznu-robu-4.webp',
