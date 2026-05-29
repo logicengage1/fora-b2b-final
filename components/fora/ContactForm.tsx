@@ -99,12 +99,16 @@ export default function ContactForm() {
     setSubmitError('');
 
     try {
-      const res = await fetch('/api/inquiries', {
+      // 1. Promijenili smo rutu na /api/contact gdje nam se nalazi Resend backend
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...formData,
-          file_names: files.map((f) => f.name),
+          name: formData.full_name, // Mapiramo podatke iz tvog stanja
+          email: formData.email,
+          company: formData.company_name,
+          message: formData.project_description,
+          file_names: files.map((f) => f.name), // Šaljemo spisak naziva fajlova
         }),
       });
 
