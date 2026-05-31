@@ -76,13 +76,20 @@ export default function Process() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  className="relative flex flex-col"
+                  /* Added 'group' class here so the child elements know when the whole card is hovered */
+                  className="group relative flex flex-col cursor-pointer"
                 >
                   {/* Step number + icon */}
                   <div className="relative flex items-center justify-center mb-6">
                     <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-50 border-2 border-slate-100 flex flex-col items-center justify-center gap-1 relative">
                       <span className="absolute top-2 right-3 text-[10px] sm:text-xs font-bold text-slate-300 font-mono">{step.number}</span>
-                      <div className="w-10 h-10 bg-fora-red rounded-xl flex items-center justify-center shadow-lg shadow-fora-red/30">
+
+                      {/* 
+                        FIX: Removed constant blinking animations.
+                        Added 'transition-transform duration-300 group-hover:scale-110' 
+                        This smoothly expands the red box when hovering anywhere on the card card.
+                      */}
+                      <div className="w-10 h-10 bg-fora-red rounded-xl flex items-center justify-center shadow-lg shadow-fora-red/30 transition-transform duration-300 ease-out group-hover:scale-110">
                         <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                       </div>
                     </div>
@@ -90,7 +97,7 @@ export default function Process() {
                     <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-2 h-2 bg-fora-red rounded-full last:hidden" />
                   </div>
 
-                  <h3 className="text-slate-900 font-bold text-lg mb-3 text-center">{step.title}</h3>
+                  <h3 className="text-slate-900 font-bold text-lg mb-3 text-center transition-colors duration-300 group-hover:text-fora-red">{step.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed text-center flex-grow">{step.description}</p>
 
                   {/* Detail badge */}
