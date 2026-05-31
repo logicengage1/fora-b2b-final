@@ -228,7 +228,7 @@ export default function ContactForm() {
               {[
                 { label: 'Email', value: 'plexiglas@forasrbac.com', sub: 'Za tehničke upite' },
                 { label: 'Telefon', value: '+387 51 740 909 / +387 63 995 343', sub: 'Radnim danima 08–16h' },
-                { label: 'Adresa', value: 'Zdravka Čelara 5, Srbac', sub: 'Bosna i Hercegovina' },
+                { label: 'Adresa kancelarije', value: 'Zdravka Čelara 5, Srbac', sub: 'Bosna i Hercegovina' },
               ].map((item) => (
                 <div
                   key={item.label}
