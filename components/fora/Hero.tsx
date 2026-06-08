@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-6"
           >
-            Precizna izrada i obrada{' '}
+            Industrijska proizvodnja i obrada{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-fora-red to-orange-500">
               polimernih materijala.
             </span>
@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl mx-auto px-4 sm:px-0"
           >
-            Vaš industrijski partner u Srpcu — od prodaje ploča i izrade proizvoda do kompletnih polimernih sistema i opreme.
+            Pouzdan partner za CNC i lasersko sječenje polimera, pleksiglasa i PVC-a u Banjoj Luci i cijeloj BiH sa sjedištem u Srpcu.
           </motion.p>
 
           {/* CTA Buttons */}

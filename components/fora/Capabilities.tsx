@@ -71,7 +71,7 @@ export default function Capabilities() {
             Naše usluge
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 leading-tight">
-            Naše usluge i proizvodni program
+            Kompletna Industrijska Obrada <p>Plastičnih Masa i Polimera</p>
           </h2>
           <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Tri osnovna programa — prodaja materijala, izrada proizvoda i industrijska oprema — sve pod jednim krovom.
