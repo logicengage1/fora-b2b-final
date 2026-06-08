@@ -1,0 +1,24 @@
+{
+    "redirects": [
+        {
+            "source": "/usluge",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/kontakt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/proizvodi",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/o-nama",
+            "destination": "/",
+            "permanent": true
+        }
+    ]
+}
