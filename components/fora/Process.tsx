@@ -7,7 +7,7 @@ const steps = [
   {
     number: '01',
     icon: FileSearch,
-    title: 'Tehnička Analiza',
+    title: 'Tehnička analiza',
     description:
       'Dostavljate nam tehničku dokumentaciju — PDF, DXF ili AI fajlove. Naš tim analizira specifikacije, dimenzije i tehničke zahtjeve vašeg projekta.',
     detail: 'Prihvatamo PDF, DXF, AI, DWG',
@@ -15,7 +15,7 @@ const steps = [
   {
     number: '02',
     icon: Calculator,
-    title: 'Izrada Ponude',
+    title: 'Izrada ponude',
     description:
       'Na osnovu tehničke analize, pripremamo detaljnu i transparentnu ponudu s preciznim cijenama, rokovima i materijalnim specifikacijama.',
     detail: 'Odgovor u roku 24 sata',
@@ -23,7 +23,7 @@ const steps = [
   {
     number: '03',
     icon: Cog,
-    title: 'Precizna Izrada',
+    title: 'Precizna izrada',
     description:
       'Vaš projekat ulazi u produkciju na modernoj CNC opremi. Svaki komad prolazi kontrolu kvaliteta i mjerenje dimenzija.',
     detail: 'ISO kontrola kvaliteta',
@@ -31,7 +31,7 @@ const steps = [
   {
     number: '04',
     icon: PackageCheck,
-    title: 'Sigurna Dostava',
+    title: 'Sigurna dostava',
     description:
       'Proizvodi se pažljivo pakuju s zaštitnom folijom i ambalažom po mjeri. Organizujemo transport na vašu lokaciju širom regiona.',
     detail: 'Dostava cijela država',
