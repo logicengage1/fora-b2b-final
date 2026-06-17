@@ -1,11 +1,13 @@
 'use client';
 
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Cpu, FlaskConical, ArrowRight } from 'lucide-react';
 import { galleryData } from '@/lib/gallery';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+
 
 const capabilities = [
   {
@@ -41,23 +43,28 @@ const capabilities = [
   }
 ];
 
+
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 };
+
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+
 export default function Capabilities() {
   const [activeCategory, setActiveCategory] = useState<'proizvodi' | 'oprema' | null>(null);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
 
+
   return (
     <section id="capabilities" className="pt-24 lg:pt-32 pb-0 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
 
         {/* Header */}
         <motion.div
@@ -78,6 +85,7 @@ export default function Capabilities() {
           </p>
         </motion.div>
 
+
         {/* Cards */}
         <motion.div
           variants={containerVariants}
@@ -91,12 +99,14 @@ export default function Capabilities() {
             const isEquipment = cap.title.toLowerCase().includes('opreme');
             const dirName = isProducts ? 'proizvodi' : isEquipment ? 'oprema' : '';
             const images = isProducts ? galleryData.proizvodi : isEquipment ? galleryData.oprema : [];
-            const limit = isProducts ? 6 : 4;
+            const limit = isProducts ? 6 : 6;
             const hasMore = images.length > limit;
             const previewImages = hasMore ? images.slice(0, limit) : images;
             const remainingCount = images.length - limit;
 
+
             const Icon = cap.icon;
+
 
             if (index === 0) {
               return (
@@ -159,6 +169,7 @@ export default function Capabilities() {
               );
             }
 
+
             return (
               <motion.div
                 key={cap.title}
@@ -183,6 +194,7 @@ export default function Capabilities() {
                   </div>
                 </div>
 
+
                 {/* Right column */}
                 <div className="flex-grow flex flex-col gap-6 items-center md:items-start text-center md:text-left">
                   <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
@@ -193,7 +205,7 @@ export default function Capabilities() {
                       className={
                         isProducts
                           ? 'grid grid-cols-3 gap-2 w-full'
-                          : 'grid grid-cols-2 gap-2 w-full'
+                          : 'grid grid-cols-3 gap-2 w-full'
                       }
                     >
                       {previewImages.map((img, imgIndex) => {
@@ -259,3 +271,4 @@ export default function Capabilities() {
     </section>
   );
 }
+

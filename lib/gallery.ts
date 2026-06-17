@@ -55,5 +55,9 @@ export const galleryData = {
     'kada-za-galvanizaciju-1.webp',
     'kada-za-galvanizaciju.webp',
     'rezervoari-za-agresivne-medije.webp',
+    'kada-za-galvanizaciju-2.webp',
+    'kada-za-galvanizaciju-3.webp',
+    'kada-za-galvanizaciju-5.webp',
+    'rezervoari-za-agresivne-medije-2.webp',
   ],
 };
