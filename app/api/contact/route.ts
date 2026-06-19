@@ -32,9 +32,9 @@ export async function POST(request: Request) {
 
         // 3. Slanje emaila sa prilozima za download
         const { data, error } = await resend.emails.send({
-            from: 'Kontakt Forma <onboarding@resend.dev>',
-            to: 'logicengage1@gmail.com', // Ovdje obavezno stavi svoj testni mail
-            subject: `Novi upit sa sajta Fora - Ime: ${name}`,
+            from: 'Kontakt Forma <kontakt@forasrbac.com>',
+            to: 'plexiglas@forasrbac.com',
+            subject: `Novi upit sa sajta - Ime: ${name}`,
             html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 8px;">
           <h2 style="color: #b91c1c; border-bottom: 2px solid #f8fafc; padding-bottom: 10px;">Novi upit sa sajta Fora</h2>
