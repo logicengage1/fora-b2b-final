@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Usluge', href: '#capabilities' },
+  { label: 'Istaknuti proizvod', href: '#featured-product' },
   { label: 'Proces', href: '#process' },
   { label: 'Reference', href: '#references' },
 ];
